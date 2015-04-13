@@ -461,8 +461,8 @@ Since each transmit signal is split to opposing ports of the 4 port antenna, the
 \end{figure} 
 
 
-\section{Isolation Circuit Structure}
-\subsection{180\degree\space Circular Hybrid Structure for Full Duplex Applications}
+\section{Implementation of a Musical Instrument}
+\subsection{Frquency Generation}
 The source of maintaing high isolation lies in the circulator (noted (C) in Fig.\ref{fig_mimodiag}) which allows a signal to pass only to its neighbor in the clockwise direction. It is desired to replace this component due to the high cost and large volume of manufactured high isolation circulators. For cost effectiveness and ease of fabrication, it was desired to implement a microstrip circuit with few mounted components. The structure considered to provide the required isolation was the circular 180\degree\space hybrid as seen in  Fig.\ref{fig_rrcomb}. Because the segments of the circuit are quarter wavelength multiples, some interesting properties arise depending on the port(s) the signals are applied to. As seen in Fig.\ref{fig_rrcomb}, signals applied at TX1 split evenly to ANT1 and ANT 2 and recombine destructively at RX1, ideally creating perfect isolation at the centre frequency. As well, identical signals applied at ANT1 and ANT2 recombine in phase at RX1 but recombine destructively at TX1, sucessfully splitting the transmit signals to the antennae and recombining the recieved signals at the RX1 port as required. Therefore, by applying the signals at the correct ports, this circuit structure can replace the function of all the isolation circuit components seen in Fig.\ref{fig_mimodiag}. However, due to the wavelength based properties of this structure, high isolation is only achieved at the centre frequency making it extremely narrow band. Work has been done previously on developing wideband 180\degree\space hybrid combiners as demonstrated in multiple papers as well as in the book titled Microwave Ring Circuits and Related Structures \cite{chang_wideband_2012}\cite{taravati_miniaturized_2013}\cite{chiu_compact_2013}\cite{chang_microwave_2004}. Of these designs, the one that seemed the most promising and most simple to fabricate was the structure presented in the paper by Quan Xue and Leung Chiu which regulated the narrow band issue by replacing the 3/4 wavelength section with a 180\degree\space parallel stripline phase shifter, allowing isolation across the band \cite{chiu_compact_2013}. After simulating the structure proposed in \cite{chiu_compact_2013}, there was still significant error in the phase inverter structure, prompting an improvement in this part of the circuit structure.
 
 \begin{figure}[!t]
@@ -473,15 +473,28 @@ The source of maintaing high isolation lies in the circulator (noted (C) in Fig.
 \label{fig_rrcomb}
 \end{figure} 
 
-\subsection{180\degree\space Phase Inverter Structures}
-The parallel stripline phase inverter functions by swapping the signals on the top and bottom striplines. Since in a parallel stripline structure, a signal propagates along the top and bottom lines with the same magnitude but opposite phase, swapping the signals on the top and bottom effectively inverts the phase of the signal. As seen in  Fig.\ref{fig_structure1}, the phase inverter structure proposed in \cite{chiu_compact_2013} consists of a straightened Z-shaped cut through the line. This poses two problems for the circuit. First, the line is suddenly cut in half without a taper causing reflections off of the cut section, and second, the optimal cut width and via hole diameter push the the limits of the smallest possible cut and hole for fabrication. Therefore, it was desired to improve upon this inverter and enhance the ease of fabrication while keeping the parallel stripline structure of the circuit. 
+\subsection{Signal Generation and Processing}
+The instrument creates a tone quality for each note by generating the fundamental frequency signal and combining it with the four subsequent harmonics. Since the operations required for signal generation and processing require fast performance, the signal generation and processing logic is designed on the onboard FPGA of the NI MyRio. Fig.\ref{fig_notegen} shows the implementation of signal generation in LabVIEW. Sine wave generator blocks are used to produce a sine wave at a calculated frequency. To produce four subsequent harmonics, the calculated frequency is multiplied by integer factors, two through five, and the resultant frequencies are used as input to separate sine wave generator blocks.  An array of fixed point numbers contain the gain level of each harmonic are converted into a cluster, de-bundled, and then multiplied to the output of their respective sine waves before they are summed together. This allows for variable tone quality by changing the volume of each harmonic. Multiplication is carried out using fixed point arithmetic for increased precision.
+
+Three instances of the signal generation code are used to generate three separate notes. Similar to the harmonic volume each note is multiplied by a fixed point number gain to control the volume of each note. Chords are enabled by a summation of the three separate notes.
+
+Acceleration controlled volume level of the output signal is achieved through scaling the raw acceleration data from the native accelerometer to the NI MyRio, and multiplying the result with the output signal. Similar to signal generation, multiplication is carried out using fixed point numbers for precision. Fig.\ref{fig_accvol} shows the implementation of signal volume control in LabVIEW. A select block controlled by a control is used to switch between the signal at acceleration controlled volume and at maximum volume. Mute functionality is implemented similarly with a select block switching between the generated signal and no signal.
+
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{structure1.jpg}
+\includegraphics[width=3in]{NoteGeneration.png}
 \DeclareGraphicsExtensions.
-\caption{Original proposed structure with phase inverter.}
-\label{fig_structure1}
+\caption{LabVIEW code for generating the summation of a sine wave and four of its harmonics.}
+\label{fig_notegen}
+\end{figure} 
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.5in]{AccelerometerVolume.png}
+\DeclareGraphicsExtensions.
+\caption{LabVIEW code for changing the gain on the output signal using accelerometer data and controls.}
+\label{fig_accvol}
 \end{figure} 
 
 \subsubsection{Twisted Line Structure}
