@@ -672,11 +672,24 @@ This results in either a gain or attenuation depending on what value was chosen.
 
 
 
-\section{Conclusion and Future Improvements}
-A modified 180\degree\space hybrid combiner for use in broadband 2x2 MIMO applications was presented and developed as an isolation circuit to be used with a symmetrical 4 port antenna. The structure proposed in (reference) was improved upon and applied to full duplex applications. While this circuit structure is effective and extremely inexpensive to manufacture, with a TX/RX isolation of only -38dB it still needs  improvement before it can be sucessfully applied to long range communications. With more time to develop and simulate this circuit structure, this isolation level could be improved and tested with the 4 port antenna.
+\section{Discussion}
+\subsection{Custom Instrument}
+\subsection{Audio Effects Processing Unit}
+The audio effects processing unit was developed one component at a time, working up from what was estimated as the easiest implementation to the most difficult. 
+Volume and left-right balance were first to be implemented and little trouble was had in their development. Some adjustments were made later on regarding the amount of maximum gain to allow each stage to prevent distortion in the final output signal. 
+3-band equalization was next to be implemented and was also not much trouble as the filter VIs in LabView are very intuitive to use.
+ Again there was some adjustments made regarding gain later on in development, as well as the addition of tunable filter range as an extra feature. 
+The most difficult of the functions was echo. 
+The first attempt consisted of using a large array (30000 elements) which would be used to store samples. 
+The echoed sample would then be pulled out of the array a designated number of elements from the front of the array. Unfortunately, even an array of 100 elements was enough to maximize the resources of the FPGA. 
+Replacing the array with a FIFO queue alleviated this problem, and a counter was implemented to replace the index selection of the array method. 
+This worked, however due to a timeout issue with the FIFO queues, the echo time was fixed at approximately 2 seconds until the an attempt was made to override the timeout, which fixed the issue. 
+Finally, when the echo time was reduced below the current value of the counter, some issue with the FIFO was causing the FPGA to crash completely where it would then need to be rebooted. 
+This issue was probably attributed to the FIFO queues reaching maximum capacity before a sample was read. 
+This issue was fixed by clearing the FIFO every time this event occurred. 
 
 
-
+\section{Conclusion}
 
 
 % if have a single appendix:
@@ -700,8 +713,7 @@ A modified 180\degree\space hybrid combiner for use in broadband 2x2 MIMO applic
 % use section* for acknowledgement
 \section*{Acknowledgment}
 
-
-Thank you to my supervisors Thanh Ngon Tran and Robert Morawski as well as fellow undergraduate student Harry Lee and Prof. Tho Le-Ngoc for all the guidance and support.
+Thank you the teaching assistant Michael Yuhas who's help was invaluable throughout this development process and to Prof. Meyer for the opportunity to work on such an engaging project.
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
