@@ -553,8 +553,10 @@ The next step in the signal path was the 3-band equalizer, which can be seen in 
 Each channel was fed into three parallel filters which were either low-pass or high-pass filters.
 The cutoff frequency of each filter was controlled from the front panel of the microcontroller, where it was fed into a Butterworth Filter Coefficient subvi, and passed into the FPGA as a fixed point number.
 As well, the gain for each band is taken from the front panel of the microcontroller, converted to fixed point, and fed into the FPGA.
+The range of the coefficients is such that there can be slight overlap in the bands, while the range of the gain is from 0 to 8.
 The bass-band filter was implemented as a low-pass filter, as was the upper-limit of the mid-band.
 The lower-limit of the mid-band and the treble were implemented as high-pass filters.
+By using both a low-pass and a high-pass filter for the mid-range band, the combined effect is a band-pass filter.
 After each filter, the signals are converted back to 16-bit integers.
 At the end of the equalizer stage. the split-signals of each channel are recombined into one and fed into the echo stage.
 
@@ -562,9 +564,25 @@ At the end of the equalizer stage. the split-signals of each channel are recombi
 \centering
 \includegraphics[width=2.5in]{balanceandeq.png}
 \DeclareGraphicsExtensions.
-\caption{FPGA implementation of lef-right balance and 3-band equalizer}
+\caption{FPGA implementation of left-right balance and 3-band equalizer}
 \label{fig_BEQ}
 \end{figure}  
+
+\subsection{Echo}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{volume.png}
+\DeclareGraphicsExtensions.
+\caption{FPGA implementation of volume control}
+\label{fig_volume}
+\end{figure} 
+
+\subsection{Master Volume}
+
+The last step in the signal path of the AEPU was the master volume control shown in Figure \ref{fig_volume}.
+Its implementation was straightforward: a double was selected from the front-panel of the microcontroller between 0 and 2, converted to fixed point, and fed into the FPGA.
+Then, it was multpilied by the signal of both the left and right channel and converted back into a 16-bit integer.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
