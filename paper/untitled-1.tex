@@ -507,33 +507,7 @@ Acceleration controlled volume level of the output signal is achieved through sc
 \label{fig_accvol}
 \end{figure} 
 
-\subsubsection{Twisted Line Structure}
-One of the simulated inverter structures consisted of cutting a slot in the PCB and fabricating two copper strips which would be individually twisted to connect the opposing top and bottom lines as seen in Fig.\ref{fig_linetwist}. Simulations for this structure showed improvement in both S11 and phase inversion from the original structure. However due to the difficulty in replication of fabrication, this structure was abandoned.
 
- \begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{linetwist.jpg}
-\DeclareGraphicsExtensions.
-\caption{Twisted line phase inverter structure.}
-\label{fig_linetwist}
-\end{figure} 
-
-\subsubsection{Meandered Line Structure}
-Due to the improvements in the previous structure where the line was not cut, it was desired to find a similar method of swapping the top and bottom signals without cutting into the line. Using a variation of the original structure, a straight cut was made all the way through the line and both sections were extended and meandered to end side by side as seen in  Fig.\ref{fig_swerve}. An identical modification was made to the bottom but with the lines meandering in the opposite direction allowing the top and bottom lines to line up. Via holes were added to connect the top and bottom lines. This modification to the structure allowed for the lines to maintain their width as well as allowing for the inclusion of larger via holes. Simulation results revealed this structure to behave similarly to the twisted line structure, but allowed for much more consistency in fabrication.
-
- \begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{swerve.jpg}
-\DeclareGraphicsExtensions.
-\caption{Meandered line phase inverter structure.}
-\label{fig_swerve}
-\end{figure} 
-
-\subsection{Balun Taper}
-In order for the balanced parallel stripline structure to make connection with an unbalanced SMA connector, a balanced to unbalanced (balun) taper was needed. Using an approximation of the Klopfenstein taper, this structure was simulated in HFSS until adequate impedance matching results were achieved \cite{rizvi_klopfenstein_2012-1}.
-
-\subsection{Final Assembly and Modifications}
-Including both the modified phase inverter structure and the balun taper, the circuit was simulated until optimum results were achieved. Due to the extra path length introduced by the meanedered phase inverter structure and the via hole, the circuit was not exactly symmetric. In order to compensate for this added pathlength, small arcs were added to the other three quarter circle sections. Adjusting the length of these arc sections during simulation yielded the final results seen in Fig.\ref{fig_simresults}. The final circuit structure used can be seen in Fig.\ref{fig_final}.
 
  \begin{figure}[!t]
 \centering
@@ -554,16 +528,11 @@ Including both the modified phase inverter structure and the balun taper, the ci
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\section{Results and Discussion}
-After optimizing the structure in simulation, a prototype was fabricated as seen in Fig.\ref{fig_final}. The circuit was tested using a VNA and both antenna ports on the circuit connected to 50 ohm terminals. The isolation value S21 was measured from the transmit to the recieve port on the circuit. The results in Fig.\ref{fig_results}  show almost identical behaviour to the final simulation seen in  Fig.\ref{fig_simresults}. It should be noted that these results show approximately 10dB isolation improvent over the structure presented in  \cite{chiu_compact_2013}.
-
- \begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{results.jpg}
-\DeclareGraphicsExtensions.
-\caption{Test results with VNA and terminated antenna ports}
-\label{fig_results}
-\end{figure} 
+\section{Audio Effects Processing Unit}
+The audio effects processing unit was required to have four functions: Left-right balance, 3-band equalization, echo, and master volume. 
+These functions were implemented on a second myRIO board from the instrument.
+The overall block diagram of the system can be seen in Figure X.
+\subsection{Left-Right Balance}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
