@@ -1,0 +1,22 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2014.8.19)  19 AUG 2014 14:50
+entering extended mode
+**C:/Users/Eric/Documents/1SURE14/paper/papertex.bib
+(C:/Users/Eric/Documents/1SURE14/paper/papertex.bib
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.2 @article{chang_
+                   wideband_2012,
+? 
+! Emergency stop.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.2 @article{chang_
+                   wideband_2012,
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
