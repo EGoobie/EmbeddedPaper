@@ -583,6 +583,7 @@ At the end of the equalizer stage. the split-signals of each channel are recombi
 The last step in the signal path of the AEPU was the master volume control shown in Figure \ref{fig_volume}.
 Its implementation was straightforward: a double was selected from the front-panel of the microcontroller between 0 and 2, converted to fixed point, and fed into the FPGA.
 Then, it was multpilied by the signal of both the left and right channel and converted back into a 16-bit integer.
+This results in either a gain or attenuation depending on what value was chosen.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
