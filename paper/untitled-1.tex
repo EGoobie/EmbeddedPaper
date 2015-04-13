@@ -534,6 +534,16 @@ These functions were implemented on a second myRIO board from the instrument.
 The overall block diagram of the system can be seen in Figure X.
 \subsection{Left-Right Balance}
 
+\subsection{3-Band Equalizer}
+The next step in the signal path was the 3-band equalizer, which can be seen in Figure Y. 
+Each channel was fed into three parallel filters which were either low-pass or high-pass filters.
+The cutoff frequency of each filter was controlled from the front panel of the microcontroller, where it was fed into a Butterworth Filter Coefficient subvi, and passed into the FPGA as a fixed point number.
+As well, the gain for each band is taken from the front panel of the microcontroller, converted to fixed point, and fed into the FPGA.
+The bass-band filter was implemented as a low-pass filter, as was the upper-limit of the mid-band.
+The lower-limit of the mid-band and the treble were implemented as high-pass filters.
+After each filter, the signals are converted back to 16-bit integers.
+At the end of the equalizer stage. the split-signals of each channel are recombined into one and fed into the echo stage.
+
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
