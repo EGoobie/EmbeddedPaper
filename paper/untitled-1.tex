@@ -495,15 +495,18 @@ Acceleration controlled volume level of the output signal is achieved through sc
 \section{Audio Effects Processing Unit}
 The audio effects processing unit (AEPU) was required to have four functions: Left-right balance, 3-band equalization, echo, and master volume. 
 These functions were implemented on a second myRIO board from the instrument.
-The entirety of the signal processing was done on the FPGA with the microprocessor responsible for supplying varioius parameters.
+The entirety of the signal processing was done on the FPGA with the microprocessor responsible for supplying varioius parameters, most from user input via the front panel in labView shown in Figure \ref{fig_AEPUfp}.
 The FPGA was run at its maximum clock frequency of 40MHz, however the audio processing was done in a timed loop sampling at 20kHz, which is near maximum audible frequency for humans meaning the audio signal sound quality should be minimally affected. 
 The overall block diagram of the system can be seen in Figure \ref{fig_AEPUBlock}.
 As well, the implementation of the AEPU on the microprocessor can be found in Figure \ref{fig_AEPUMicro}.
-\subsection{Left-Right Balance}
-The left-right balance effect which processes the audio signal on the FPGA unit, takes as input a fixed point value between -1 and 1 from the microprocessor obtained from the front panel control. 
-The value passed in from the microprocessor, labeled Balance in Figure X, is subtracted from 1 for the left channel and added to 1 for the right channel. 
-The resulting values are multiplied by their corresponding audio signal paths to scale the signal accordingly. The result is that at -1, the right channel is completely cancelled and at 1, the left channel is completely canceled. 
-The FPGA implemented block diagram can be seen on the left side of Figure X.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{frontpanel.png}
+\DeclareGraphicsExtensions.
+\caption{LabView front panel UI for the effects processing unit}
+\label{fig_AEPUfp}
+\end{figure}
 
 \begin{figure}[!t]
 \centering
@@ -512,6 +515,14 @@ The FPGA implemented block diagram can be seen on the left side of Figure X.
 \caption{Overall block diagram of the audio effects processing unit}
 \label{fig_AEPUBlock}
 \end{figure}
+
+
+
+\subsection{Left-Right Balance}
+The left-right balance effect which processes the audio signal on the FPGA unit, takes as input a fixed point value between -1 and 1 from the microprocessor obtained from the front panel control. 
+The value passed in from the microprocessor, labeled Balance in Figure \ref{fig_BEQ}, is subtracted from 1 for the left channel and added to 1 for the right channel. 
+The resulting values are multiplied by their corresponding audio signal paths to scale the signal accordingly. The result is that at -1, the right channel is completely cancelled and at 1, the left channel is completely canceled. 
+The FPGA implemented block diagram can be seen on the left side of Figure \ref{fig_BEQ}.
 
 \begin{figure}[!t]
 \centering
@@ -543,6 +554,7 @@ At the end of the equalizer stage. the split-signals of each channel are recombi
 
 \subsection{Echo}
 Echo is implemented in entirely in the FPGA with the parameters Echo Time and Echo Gain passed to the FPGA from the microcontroller in the same fashion as the previously described functions. 
+The corresponding FPGA implemented block diagram can be seen in Figure \ref{fig_echo}.
 To echo the signal, the samples must be written to memory and read a specific time later (the echo time) to be combined with the main signal path. 
 The memory was implemented using a FIFO queue for each audio channel. The FPGA resources on the myRIO only allowed for a maximum of 31000 elements on each FIFO which set the upper limit on the delay time. 
 The time was implemented using a counter initialized at 0. Each loop iteration the counter increments by 1 until the Echo Time is reached. 
@@ -550,8 +562,16 @@ When the echo time is reached, the counter is no longer incremented and the echo
 If the echo time is increased, the counter begins incrementing again. If the echo time is decreased below the counter value, the counter is reset to 0 and the FIFOs are cleared. 
 Whenever the counter is equal to the echo time, the case structure is set to true which reads a sample every loop iteration. 
 When the counter is not equal to the echo time, 0 is combined with the current signal. 
-A fixed point value between 0 and 2 labelled Echo Gain in Figure X is also passed from the microprocessor and is multiplied by the echo signal before it is added back into the main signal path. 
+A fixed point value between 0 and 2 labelled Echo Gain in Figure \ref{fig_echo} is also passed from the microprocessor and is multiplied by the echo signal before it is added back into the main signal path. 
 This allows for either an attenuation of amplification of the echoed signal depending on user preferences.  
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.3in]{echo.png}
+\DeclareGraphicsExtensions.
+\caption{FPGA implementation of echo}
+\label{fig_echo}
+\end{figure} 
 
 \begin{figure}[!t]
 \centering
