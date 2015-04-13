@@ -445,32 +445,12 @@ These applications were implemented on two separate National Instruments MyRio b
  A full duplex system would allow a cellular base station or Wi-Fi access point to achieve this simultaneous communication, ideally doubling the throughput and enabling the service of twice as many users in the same amount of time and using the same power as a half duplex system. 
  This project considers circuit structures to passively maintain high transmit/recieve isolation in a full duplex 2x2 MIMO setup with a symmetrical 4 port antenna. 
 Unlike other methods of achieving full duplex, this setup relies on the symmetry of the antenna and circuit setup to provide all the isolation.
-\subsection{Full Duplex 2x2 MIMO Requirements}
-In order to sucessfully acheive full duplex MIMO communication, a few key requirements must be attained in order to ensure that the recieved signal is sufficiently unmodified to be reconstructed in the ADC. 
-First, a high isolation between the transmit and recieve ports must be maintained at all times to avoid drowning out the recieved signal. 
-Second, the isolation circuit must cancel signals coupled acoss the balanced 4 port antenna. 
-As well, transmitted signals internally reflected by the antenna must be cancelled in the isolation circuit to avoid mixing with the recieved signal. 
-Since each transmit signal is split to opposing ports of the 4 port antenna, the isolation circuit is also responsible for divding this signal.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{fdmimo2diagram.jpg}
-\DeclareGraphicsExtensions.
-\caption{Full Duplex 2x2 MIMO Antenna and Isolation Circuit Layout}
-\label{fig_mimodiag}
-\end{figure} 
 
 
 \section{Implementation of a Musical Instrument}
 \subsection{Frquency Generation}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{rrcomb.jpg}
-\DeclareGraphicsExtensions.
-\caption{180\degree\space hybrid combiner properties for 2x2 full duplex MIMO use.}
-\label{fig_rrcomb}
-\end{figure} 
+
 
 \subsection{Signal Generation and Processing}
 The instrument creates a tone quality for each note by generating the fundamental frequency signal and combining it with the four subsequent harmonics.
@@ -508,22 +488,6 @@ Acceleration controlled volume level of the output signal is achieved through sc
 \end{figure} 
 
 
-
- \begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{finalfab.jpg}
-\DeclareGraphicsExtensions.
-\caption{Final fabricated circuit structure with included phase inverter, balun taper and path length correction.}
-\label{fig_final}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{finalsimresults.png}
-\DeclareGraphicsExtensions.
-\caption{Simulation results from final optimized structure}
-\label{fig_simresults}
-\end{figure}  
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
@@ -569,6 +533,16 @@ At the end of the equalizer stage. the split-signals of each channel are recombi
 \end{figure}  
 
 \subsection{Echo}
+Echo is implemented in entirely in the FPGA with the parameters Echo Time and Echo Gain passed to the FPGA from the microcontroller in the same fashion as the previously described functions. 
+To echo the signal, the samples must be written to memory and read a specific time later (the echo time) to be combined with the main signal path. 
+The memory was implemented using a FIFO queue for each audio channel. The FPGA resources on the myRIO only allowed for a maximum of 31000 elements on each FIFO which set the upper limit on the delay time. 
+The time was implemented using a counter initialized at 0. Each loop iteration the counter increments by 1 until the Echo Time is reached. 
+When the echo time is reached, the counter is no longer incremented and the echo time is continuously passed to the shift register to ensure that the counter remains equal to the echo time.
+If the echo time is increased, the counter begins incrementing again. If the echo time is decreased below the counter value, the counter is reset to 0 and the FIFOs are cleared. 
+Whenever the counter is equal to the echo time, the case structure is set to true which reads a sample every loop iteration. 
+When the counter is not equal to the echo time, 0 is combined with the current signal. 
+A fixed point value between 0 and 2 labelled Echo Gain in Figure X is also passed from the microprocessor and is multiplied by the echo signal before it is added back into the main signal path. 
+This allows for either an attenuation of amplification of the echoed signal depending on user preferences.  
 
 \begin{figure}[!t]
 \centering
