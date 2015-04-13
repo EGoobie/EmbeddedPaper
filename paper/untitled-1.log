@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  13 APR 2015 12:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  13 APR 2015 13:09
 entering extended mode
 **C:/Users/Justin/GitHub/EmbeddedPaper/paper/untitled-1.tex
 (C:/Users/Justin/GitHub/EmbeddedPaper/paper/untitled-1.tex
@@ -456,11 +456,24 @@ File: finalsimresults.png Graphic file (type png)
 Package pdftex.def Info: finalsimresults.png used on input line 522.
 (pdftex.def)             Requested size: 180.67499pt x 115.18378pt.
 
-(C:\Users\Justin\GitHub\EmbeddedPaper\paper\untitled-1.bbl [2 <C:/Users/Justin/
-GitHub/EmbeddedPaper/paper/NoteGeneration.png> <C:/Users/Justin/GitHub/Embedded
-Paper/paper/AccelerometerVolume.png> <C:/Users/Justin/GitHub/EmbeddedPaper/pape
-r/finalfab.jpg> <C:/Users/Justin/GitHub/EmbeddedPaper/paper/finalsimresults.png
->]
+<microcontroller.png, id=16, 507.39563pt x 425.33907pt>
+File: microcontroller.png Graphic file (type png)
+
+<use microcontroller.png>
+Package pdftex.def Info: microcontroller.png used on input line 541.
+(pdftex.def)             Requested size: 180.67499pt x 151.45396pt.
+ [2 <C:/Users/Justin/GitHub/EmbeddedPaper/paper/NoteGeneration.png> <C:/Users/J
+ustin/GitHub/EmbeddedPaper/paper/AccelerometerVolume.png> <C:/Users/Justin/GitH
+ub/EmbeddedPaper/paper/finalfab.jpg> <C:/Users/Justin/GitHub/EmbeddedPaper/pape
+r/finalsimresults.png> <C:/Users/Justin/GitHub/EmbeddedPaper/paper/microcontrol
+ler.png>]
+<balanceandeq.png, id=23, 834.11626pt x 711.4078pt>
+File: balanceandeq.png Graphic file (type png)
+ <use balanceandeq.png>
+Package pdftex.def Info: balanceandeq.png used on input line 559.
+(pdftex.def)             Requested size: 180.67499pt x 154.0895pt.
+
+(C:\Users\Justin\GitHub\EmbeddedPaper\paper\untitled-1.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `en'. Using the pattern for
 ** the default language instead.
@@ -471,24 +484,25 @@ Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ° in font ptmr7t!
 ) [3
 
-] (C:\Users\Justin\GitHub\EmbeddedPaper\paper\untitled-1.aux) ) 
+ <C:/Users/Justin/GitHub/EmbeddedPaper/paper/balanceandeq.png>]
+(C:\Users\Justin\GitHub\EmbeddedPaper\paper\untitled-1.aux) ) 
 Here is how much of TeX's memory you used:
- 3230 strings out of 493921
- 52451 string characters out of 3141264
- 205494 words of memory out of 3000000
- 6479 multiletter control sequences out of 15000+200000
+ 3242 strings out of 493921
+ 52688 string characters out of 3141264
+ 205510 words of memory out of 3000000
+ 6489 multiletter control sequences out of 15000+200000
  37994 words of font info for 69 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
  42i,5n,23p,980b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Justin
-/Programs/miktex/New folder/fonts/enc/dvips/fontname/8r.enc}<C:/Users/Justin/Pr
-ograms/miktex/New folder/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Justin/Prog
-rams/miktex/New folder/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Justin/Progr
-ams/miktex/New folder/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Justin/Program
-s/miktex/New folder/fonts/type1/urw/times/utmri8a.pfb>
-Output written on untitled-1.pdf (3 pages, 2939707 bytes).
+{C:/Users/Justin/P
+rograms/miktex/New folder/fonts/enc/dvips/fontname/8r.enc}<C:/Users/Justin/Prog
+rams/miktex/New folder/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Justin/Progra
+ms/miktex/New folder/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Justin/Program
+s/miktex/New folder/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Justin/Programs/
+miktex/New folder/fonts/type1/urw/times/utmri8a.pfb>
+Output written on untitled-1.pdf (3 pages, 3034873 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 42 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
