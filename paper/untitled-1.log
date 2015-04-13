@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  13 APR 2015 02:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.13)  13 APR 2015 10:53
 entering extended mode
-**untitled-1.tex
-(C:\Users\Jeffrey\Documents\GitHub\EmbeddedPaper\paper\untitled-1.tex
+**C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/untitled-1.tex
+(C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/untitled-1.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -119,55 +119,32 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen124
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\was\gensymb.sty"
+Package: gensymb 2003/07/02 v1.0 (WaS)
 )
-
-! LaTeX Error: File `gensymb.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-
-! LaTeX Error: File `filecontents.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-
-! LaTeX Error: File `lipsum.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-
-! LaTeX Error: File `cite.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-
-! LaTeX Error: Unknown option `noadjust' for package `cite'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.242 \usepackage
-                 {multicol}
-? 
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\filecontents\filecontents.sty"
+Package: filecontents 2011/10/08 v1.3 Create an external file from within a LaT
+eX document
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count94
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count94
+\c@tracingmulticols=\count95
 \mult@box=\box28
 \multicol@leftmargin=\dimen125
-\c@unbalance=\count95
-\c@collectmore=\count96
-\doublecol@number=\count97
-\multicoltolerance=\count98
-\multicolpretolerance=\count99
+\c@unbalance=\count96
+\c@collectmore=\count97
+\doublecol@number=\count98
+\multicoltolerance=\count99
+\multicolpretolerance=\count100
 \full@width=\dimen126
 \page@free=\dimen127
 \premulticols=\dimen128
@@ -197,14 +174,14 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count100
-\c@finalcolumnbadness=\count101
+\c@columnbadness=\count101
+\c@finalcolumnbadness=\count102
 \last@try=\dimen130
 \multicolovershoot=\dimen131
 \multicolundershoot=\dimen132
 \mult@nat@firstbox=\box52
 \colbreak@box=\box53
-\multicol@sort@counter=\count102
+\multicol@sort@counter=\count103
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
@@ -343,13 +320,14 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-
-! LaTeX Error: File `wrapfig.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen133
+\WF@size=\dimen134
+\c@WF@wrappedlines=\count104
+\WF@box=\box54
+\WF@everypar=\toks16
+Package: wrapfig 2003/01/31  v 3.6
+)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -366,14 +344,17 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count103
+\Gread@gobject=\count105
 ))
-\Gin@req@height=\dimen133
-\Gin@req@width=\dimen134
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
 )
 
-LaTeX Warning: File `references.bib' already exists on the system.
-               Not generating it from this source.
+LaTeX Warning: Overwriting file `./references.bib'.
+
+
+LaTeX Warning: Tab has been converted to Blank Space.
+
 
 (C:\Users\Jeffrey\Documents\GitHub\EmbeddedPaper\paper\untitled-1.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 377.
@@ -398,106 +379,106 @@ File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    ... okay on input line 377.
 
 -- Lines per column: 58 (exact).
-<fdmimo2diagram.jpg, id=1, 1283.54532pt x 752.8125pt>
+\symgns@font=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/ptm/m/n --> TS1/ptm/bx/n on input line 377.
+Package gensymb Info: Math companion symbols declared on input line 377.
+LaTeX Info: Redefining \degree on input line 377.
+LaTeX Info: Redefining \celsius on input line 377.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
+erthousand on input line 377.
+LaTeX Info: Redefining \ohm on input line 377.
+Package gensymb Info: Using \textohm for \ohm on input line 377.
+Package gensymb Info: Using \textmu for \micro on input line 377.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count106
+\scratchdimen=\dimen137
+\scratchbox=\box55
+\nofMPsegments=\count107
+\nofMParguments=\count108
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count109
+\MPscratchDim=\dimen138
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
+\everyMPtoPDFconversion=\toks18
+) <fdmimo2diagram.jpg, id=1, 1283.54532pt x 752.8125pt>
 File: fdmimo2diagram.jpg Graphic file (type jpg)
- <use fdmimo2diagram.jpg>
+
+<use fdmimo2diagram.jpg>
 Package pdftex.def Info: fdmimo2diagram.jpg used on input line 457.
 (pdftex.def)             Requested size: 180.67499pt x 105.96738pt.
-
-! Undefined control sequence.
-l.466 ...red isolation was the circular 180\degree
-                                                  \space hybrid as seen in  ...
-
-? 
-! Undefined control sequence.
-l.466 ...viously on developing wideband 180\degree
-                                                  \space hybrid combiners as...
-
-? 
-! Undefined control sequence.
-l.466 ... 3/4 wavelength section with a 180\degree
-                                                  \space parallel stripline ...
-
-? 
-<rrcomb.jpg, id=2, 1283.54532pt x 752.8125pt>
+ <rrcomb.jpg, id=2, 1283.54532pt x 752.8125pt>
 File: rrcomb.jpg Graphic file (type jpg)
- <use rrcomb.jpg>
-Package pdftex.def Info: rrcomb.jpg used on input line 470.
+
+<use rrcomb.jpg>
+Package pdftex.def Info: rrcomb.jpg used on input line 469.
 (pdftex.def)             Requested size: 180.67499pt x 105.96738pt.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 471.
 
-! Undefined control sequence.
-<argument> ...ndcsname }{\ignorespaces 180\degree 
-                                                  \space hybrid combiner pro...
-l.472 ...properties for 2x2 full duplex MIMO use.}
-                                                  
-? 
-! Undefined control sequence.
-<argument> \ignorespaces 180\degree 
-                                    \space hybrid combiner properties for 2x...
-l.472 ...properties for 2x2 full duplex MIMO use.}
-                                                  
-? 
-[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
- <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/fdmimo2diagram.jpg>]
+ <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/fdmimo2diagram.jpg> <C:
+/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/rrcomb.jpg>]
 <NoteGeneration.png, id=11, 293.59688pt x 252.19218pt>
 File: NoteGeneration.png Graphic file (type png)
 
 <use NoteGeneration.png>
-Package pdftex.def Info: NoteGeneration.png used on input line 486.
+Package pdftex.def Info: NoteGeneration.png used on input line 496.
 (pdftex.def)             Requested size: 216.81pt x 186.23447pt.
 
 <AccelerometerVolume.png, id=13, 523.20468pt x 113.67468pt>
 File: AccelerometerVolume.png Graphic file (type png)
 
 <use AccelerometerVolume.png>
-Package pdftex.def Info: AccelerometerVolume.png used on input line 494.
+Package pdftex.def Info: AccelerometerVolume.png used on input line 504.
 (pdftex.def)             Requested size: 252.94499pt x 54.95522pt.
 
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 494--496
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 504--506
  [][] 
  []
 
 <linetwist.jpg, id=14, 391.4625pt x 258.9675pt>
 File: linetwist.jpg Graphic file (type jpg)
  <use linetwist.jpg>
-Package pdftex.def Info: linetwist.jpg used on input line 505.
+Package pdftex.def Info: linetwist.jpg used on input line 515.
 (pdftex.def)             Requested size: 180.67499pt x 119.52559pt.
+
+Underfull \vbox (badness 1194) has occurred while \output is active []
+
 
 <swerve.jpg, id=15, 1039.63406pt x 633.11531pt>
 File: swerve.jpg Graphic file (type jpg)
  <use swerve.jpg>
-Package pdftex.def Info: swerve.jpg used on input line 516.
+Package pdftex.def Info: swerve.jpg used on input line 526.
 (pdftex.def)             Requested size: 180.67499pt x 110.02399pt.
- [2 <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/rrcomb.jpg> <C:/User
-s/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/NoteGeneration.png> <C:/Users/Je
-ffrey/Documents/GitHub/EmbeddedPaper/paper/AccelerometerVolume.png> <C:/Users/J
-effrey/Documents/GitHub/EmbeddedPaper/paper/linetwist.jpg>]
-<finalfab.jpg, id=21, 2457.18pt x 3276.24pt>
+
+<finalfab.jpg, id=16, 2457.18pt x 3276.24pt>
 File: finalfab.jpg Graphic file (type jpg)
  <use finalfab.jpg>
-Package pdftex.def Info: finalfab.jpg used on input line 530.
+Package pdftex.def Info: finalfab.jpg used on input line 540.
 (pdftex.def)             Requested size: 180.67499pt x 240.85825pt.
 
-<finalsimresults.png, id=22, 938.75719pt x 598.48593pt>
+<finalsimresults.png, id=17, 938.75719pt x 598.48593pt>
 File: finalsimresults.png Graphic file (type png)
 
 <use finalsimresults.png>
-Package pdftex.def Info: finalsimresults.png used on input line 538.
+Package pdftex.def Info: finalsimresults.png used on input line 548.
 (pdftex.def)             Requested size: 180.67499pt x 115.18378pt.
- <results.jpg, id=23, 776.9025pt x 603.75563pt>
+ <results.jpg, id=18, 776.9025pt x 603.75563pt>
 File: results.jpg Graphic file (type jpg)
 
 <use results.jpg>
-Package pdftex.def Info: results.jpg used on input line 552.
+Package pdftex.def Info: results.jpg used on input line 562.
 (pdftex.def)             Requested size: 180.67499pt x 140.40858pt.
-
-! Undefined control sequence.
-l.643 A modified 180\degree
-                           \space hybrid combiner for use in broadband 2x2 M...
-
-? 
+ [2 <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/NoteGeneration.png> 
+<C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/AccelerometerVolume.png>
+ <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/linetwist.jpg> <C:/User
+s/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/swerve.jpg>]
 (C:\Users\Jeffrey\Documents\GitHub\EmbeddedPaper\paper\untitled-1.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `en'. Using the pattern for
@@ -507,29 +488,25 @@ l.643 A modified 180\degree
 ** the default language instead.
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ° in font ptmr7t!
-) [3 <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/swerve.jpg> <C:/Use
-rs/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/finalfab.jpg> <C:/Users/Jeffrey
-/Documents/GitHub/EmbeddedPaper/paper/finalsimresults.png> <C:/Users/Jeffrey/Do
-cuments/GitHub/EmbeddedPaper/paper/results.jpg>]
-(C:\Users\Jeffrey\Documents\GitHub\EmbeddedPaper\paper\untitled-1.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [3 <C:/Users/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/finalfab.jpg> <C:/U
+sers/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/finalsimresults.png> <C:/User
+s/Jeffrey/Documents/GitHub/EmbeddedPaper/paper/results.jpg>]
+(C:\Users\Jeffrey\Documents\GitHub\EmbeddedPaper\paper\untitled-1.aux) ) 
 Here is how much of TeX's memory you used:
- 2551 strings out of 493921
- 42938 string characters out of 3144870
- 102370 words of memory out of 3000000
- 5819 multiletter control sequences out of 15000+200000
- 37366 words of font info for 67 fonts, out of 3000000 for 9000
+ 3248 strings out of 493921
+ 52142 string characters out of 3144870
+ 205518 words of memory out of 3000000
+ 6494 multiletter control sequences out of 15000+200000
+ 37994 words of font info for 69 fonts, out of 3000000 for 9000
  844 hyphenation exceptions out of 8191
- 42i,5n,23p,2380b,205s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on untitled-1.pdf (3 pages, 3519735 bytes).
+ 42i,5n,23p,991b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/
+times/utmri8a.pfb>
+Output written on untitled-1.pdf (3 pages, 3518365 bytes).
 PDF statistics:
  41 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
