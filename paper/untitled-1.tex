@@ -379,7 +379,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Custom Instrument and Audio Effects Processor Using NI MyRio}
+\title{Custom Instrument and Audio Effects Processor Using NI myRIO}
 %
 %
 % Author names 
@@ -550,7 +550,8 @@ Similar to signal generation, multiplication is carried out using fixed point nu
 \section{Audio Effects Processing Unit}
 The audio effects processing unit (AEPU) was required to have four functions: Left-right balance, 3-band equalization, echo, and master volume. 
 These functions were implemented on a second myRIO board from the instrument.
-The entirety of the signal processing was done on the FPGA with the microprocessor responsible for supplying varioius parameters, most from user input via the front panel in labView shown in Figure \ref{fig_AEPUfp}.
+The entirety of the signal processing was done on the FPGA with the microprocessor responsible for supplying varioius parameters, most from user input via the front panel in labView shown in Figure \ref{fig_AEPUfp}. 
+It was chosen to have all of the singnal processing allocated to the FPGA to attempt to have the highest processing speed possible to maintain the best sound quality.
 The FPGA was run at its maximum clock frequency of 40MHz, however the audio processing was done in a timed loop sampling at 20kHz, which is near maximum audible frequency for humans meaning the audio signal sound quality should be minimally affected. 
 The overall block diagram of the system can be seen in Figure \ref{fig_AEPUBlock}.
 As well, the implementation of the AEPU on the microprocessor can be found in Figure \ref{fig_AEPUMicro}.
@@ -603,7 +604,7 @@ At the end of the equalizer stage. the split-signals of each channel are recombi
 \centering
 \includegraphics[width=3.3in]{balanceandeq.png}
 \DeclareGraphicsExtensions.
-\caption{FPGA implementation of left-right balance and 3-band equalizer}
+\caption{labVIEW FPGA implementation of left-right balance and 3-band equalizer}
 \label{fig_BEQ}
 \end{figure}  
 
@@ -624,7 +625,7 @@ This allows for either an attenuation of amplification of the echoed signal depe
 \centering
 \includegraphics[width=3.5in]{echo.png}
 \DeclareGraphicsExtensions.
-\caption{FPGA implementation of echo}
+\caption{labVIEW FPGA implementation of echo}
 \label{fig_echo}
 \end{figure} 
 
@@ -632,7 +633,7 @@ This allows for either an attenuation of amplification of the echoed signal depe
 \centering
 \includegraphics[width=2.5in]{volume.png}
 \DeclareGraphicsExtensions.
-\caption{FPGA implementation of volume control}
+\caption{labVIEW FPGA implementation of volume control}
 \label{fig_volume}
 \end{figure} 
 
