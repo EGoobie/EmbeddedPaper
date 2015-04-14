@@ -42,4 +42,11 @@ W.~contributors, ``Sampling (signal processing),'' \emph{Wikipedia, The Free
   \url{http://en.wikipedia.org/w/index.php?title=Sampling\_(signal\_processing)\\\&oldid=656020839}
 \BIBentrySTDinterwordspacing
 
+\bibitem{audio_fundamentals}
+\BIBentryALTinterwordspacing
+A.~contributors, ``Digital audio fundamentals,'' \emph{Audacity Team}, Feb.
+  2015. [Online]. Available:
+  \url{http://manual.audacityteam.org/index.php?title=Digital\_Audio}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

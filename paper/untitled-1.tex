@@ -313,6 +313,16 @@
 	urldate = {2015-04-14}
 }
 
+@article{audio_fundamentals,
+	title = {Digital Audio Fundamentals},
+	journal = {Audacity Team},
+	author = {Audacity contributors},
+	month = feb,
+	year = {2015},
+	url = {http://manual.audacityteam.org/index.php?title=Digital\_Audio},
+	urldate = {2015-04-14}
+}
+
 @inproceedings{rizvi_klopfenstein_2012,
 	title = {Klopfenstein tapered 2 \#x2013;18 {GHz} microstrip balun},
 	doi = {10.1109/IBCAST.2012.6177579},
@@ -544,11 +554,11 @@ Similar to signal generation, multiplication is carried out using fixed point nu
 \section{Audio Effects Processing Unit}
 The audio effects processing unit (AEPU) was required to have four functions: Left-right balance, 3-band equalization, echo, and master volume. 
 These functions were implemented on a second myRIO board from the instrument.
-The entirety of the signal processing was done on the FPGA with the microprocessor responsible for supplying varioius parameters, most from user input via the front panel in labView shown in Figure \ref{fig_AEPUfp}. 
+The entirety of the signal processing was done on the FPGA with the microprocessor responsible for supplying varioius parameters, most from user input via the front panel in labView shown in Fig. \ref{fig_AEPUfp}. 
 It was chosen to have all of the singnal processing allocated to the FPGA to attempt to have the highest processing speed possible to maintain the best sound quality.
-The FPGA was run at its maximum clock frequency of 40MHz, however the audio processing was done in a timed loop sampling at 20kHz, which is near maximum audible frequency for humans meaning the audio signal sound quality should be minimally affected. 
-The overall block diagram of the system can be seen in Figure \ref{fig_AEPUBlock}.
-As well, the implementation of the AEPU on the microprocessor can be found in Figure \ref{fig_AEPUMicro}.
+The FPGA was run at its maximum clock frequency of 40MHz, however the audio processing was done in a timed loop sampling at 40kHz, which is roughly twice the maximum audible frequency for humans meaning the audio signal sound quality should be minimally affected \cite{audio_fundamentals}.
+The overall block diagram of the system can be seen in Fig. \ref{fig_AEPUBlock}.
+As well, the implementation of the AEPU on the microprocessor can be found in Fig. \ref{fig_AEPUMicro}.
 
 \begin{figure}[!t]
 \centering
@@ -570,9 +580,9 @@ As well, the implementation of the AEPU on the microprocessor can be found in Fi
 
 \subsection{Left-Right Balance}
 The left-right balance effect which processes the audio signal on the FPGA unit, takes as input a fixed point value between -1 and 1 from the microprocessor obtained from the front panel control. 
-The value passed in from the microprocessor, labeled Balance in Figure \ref{fig_BEQ}, is subtracted from 1 for the left channel and added to 1 for the right channel. 
+The value passed in from the microprocessor, labeled Balance in Fig. \ref{fig_BEQ}, is subtracted from 1 for the left channel and added to 1 for the right channel. 
 The resulting values are multiplied by their corresponding audio signal paths to scale the signal accordingly. The result is that at -1, the right channel is completely cancelled and at 1, the left channel is completely canceled. 
-The FPGA implemented block diagram can be seen on the left side of Figure \ref{fig_BEQ}.
+The FPGA implemented block diagram can be seen on the left side of Fig. \ref{fig_BEQ}.
 
 \begin{figure}[!t]
 \centering
@@ -583,7 +593,7 @@ The FPGA implemented block diagram can be seen on the left side of Figure \ref{f
 \end{figure}
 
 \subsection{3-Band Equalizer}
-The next step in the signal path was the 3-band equalizer, which can be seen in Figure \ref{fig_BEQ}. 
+The next step in the signal path was the 3-band equalizer, which can be seen in Fig. \ref{fig_BEQ}. 
 Each channel was fed into three parallel filters which were either low-pass or high-pass filters.
 The cutoff frequency of each filter was controlled from the front panel of the microcontroller, where it was fed into a Butterworth Filter Coefficient subvi, and passed into the FPGA as a fixed point number.
 As well, the gain for each band is taken from the front panel of the microcontroller, converted to fixed point, and fed into the FPGA.
@@ -604,7 +614,7 @@ At the end of the equalizer stage. the split-signals of each channel are recombi
 
 \subsection{Echo}
 Echo is implemented in entirely in the FPGA with the parameters Echo Time and Echo Gain passed to the FPGA from the microcontroller in the same fashion as the previously described functions. 
-The corresponding FPGA implemented block diagram can be seen in Figure \ref{fig_echo}.
+The corresponding FPGA implemented block diagram can be seen in Fig. \ref{fig_echo}.
 To echo the signal, the samples must be written to memory and read a specific time later (the echo time) to be combined with the main signal path. 
 The memory was implemented using a FIFO queue for each audio channel. The FPGA resources on the myRIO only allowed for a maximum of 31000 elements on each FIFO which set the upper limit on the delay time. 
 The time was implemented using a counter initialized at 0. Each loop iteration the counter increments by 1 until the Echo Time is reached. 
@@ -612,7 +622,7 @@ When the echo time is reached, the counter is no longer incremented and the echo
 If the echo time is increased, the counter begins incrementing again. If the echo time is decreased below the counter value, the counter is reset to 0 and the FIFOs are cleared. 
 Whenever the counter is equal to the echo time, the case structure is set to true which reads a sample every loop iteration. 
 When the counter is not equal to the echo time, 0 is combined with the current signal. 
-A fixed point value between 0 and 2 labelled Echo Gain in Figure \ref{fig_echo} is also passed from the microprocessor and is multiplied by the echo signal before it is added back into the main signal path. 
+A fixed point value between 0 and 2 labelled Echo Gain in Fig. \ref{fig_echo} is also passed from the microprocessor and is multiplied by the echo signal before it is added back into the main signal path. 
 This allows for either an attenuation of amplification of the echoed signal depending on user preferences.  
 
 \begin{figure}[!t]
@@ -633,7 +643,7 @@ This allows for either an attenuation of amplification of the echoed signal depe
 
 \subsection{Master Volume}
 
-The last step in the signal path of the AEPU was the master volume control shown in Figure \ref{fig_volume}.
+The last step in the signal path of the AEPU was the master volume control shown in Fig. \ref{fig_volume}.
 Its implementation was straightforward: a double was selected from the front-panel of the microcontroller between 0 and 2, converted to fixed point, and fed into the FPGA.
 Then, it was multpilied by the signal of both the left and right channel and converted back into a 16-bit integer.
 This results in either a gain or attenuation depending on what value was chosen.
