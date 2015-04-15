@@ -491,7 +491,7 @@ A subVI handles the note discretization using the y-acceleration as input and ou
 \begin{equation}
 \label{hargen}
 \begin{split}
- f_{dis}=f_{0}\cdot u \left( t- \left( A_{y}- \left( 260- \left( n-1  \right) \cdot \frac{520}{n} \right) \right) \right) +\\ \sum_{i=1, j=2}^{i=11,j=n-1}\Delta f_{i-1,i} \cdot u\left (t-\left (A_{y}-\left (260- \left( n-1  \right) \cdot \frac{520}{n}  \right) \right) \right)
+ f_{dis}=f_{0}\cdot u \left( t- \left( A_{y}- \left( 260- \left( n-1  \right) \cdot \frac{520}{n} \right) \right) \right) +\\ \sum_{i=1, j=2}^{i=11,j=n-1}\Delta f_{i-1,i} \cdot u\left (t-\left (A_{y}-\left (260- \left( n-j  \right) \cdot \frac{520}{n}  \right) \right) \right)
 \end{split}
 \end{equation}
 
